@@ -128,6 +128,12 @@
             top: -100px;
             left: 100px;
         }
+        .marketplace_ul {
+            font-size: 37px !important;
+        }
+        .hljs-line-highlight {
+            background-color: rgba(255, 255, 0, 0.5); /* Highlight color */
+        }
     </style>
 </head>
 
@@ -170,21 +176,6 @@
             <!-- Slide 2 -->
             <section class="mainSlide">
                 <h3>Почему вообще родился доклад?</h3>
-                <!--
-                    Проект на котором я работаю это преимущественно redux архитектура в которой
-                    множество экшенов и селекторов. И все чем мы занимаемся на самом деле
-                    это постоянно что-то диспатчим и что-то берем из стора, чтобы просто отобразить
-
-                    То есть каждый раз, когда нам надо добавить новую функциональность или что-то поменять
-                    нам постоянно приходиться взаимодействовать с api библиотек
-
-                    Что порождает множество проблем связанных с переносимостью проекта, его расширением тестированием и тд
-                    И меня это натолкнуло на мысль а можем ли мы писать вообще более независимый код. И я об этом сегодня расскажу
-
-                    Вторая более косвенная проблема связана с тем, что я занимаюсь менторингом и проведением собеседований
-                    и все чаще стал замечать насколько разработчики привязываются к конкретным инструментами и не до конца понимают
-                    их назначение
-                -->
             </section>
             <section>
                 <img src="./assets/pribil_redux.png" alt="" width="80%">
@@ -222,7 +213,7 @@
             <!-- Slide 2 -->
             <section class="slide_5">
                 <img data-src="./assets/img1.png" width="250px" height="500px">
-                <ul>
+                <ul class="marketplace_ul">
                     <li class="fragment fragment-grow">Добавить товар в корзину</li>
                     <li class="fragment fragment-grow">Удалить товар из корзины</li>
                     <li class="fragment fragment-grow">Сохранять в браузерное хранилище</li>
@@ -241,29 +232,7 @@
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                        <span>16</span>
-                        <span>17</span>
-                        <span>18</span>
-                        <span>19</span>
-                        <span>20</span>
-                    </div>
-                    <code class="javascript">
+                    <code class="typescript" data-line-numbers="2|3-6|8-10|12-13|15-19">
 export const addToCartAction = async (productId) => {
     // Получаем продукт по ID
     const product = productStore.getProductById(productId);
@@ -297,29 +266,7 @@ export const addToCartAction = async (productId) => {
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                        <span>16</span>
-                        <span>17</span>
-                        <span>18</span>
-                        <span>19</span>
-                        <span>20</span>
-                    </div>
-                    <code class="javascript">
+                    <code class="typescript" data-line-numbers="12-19|3-10">
 it('Проверка добавления товара в корзину', async () => {
     const context = mockAppContext({
         stores: [productStoreMock, baskStoreMock],
@@ -363,34 +310,7 @@ it('Проверка добавления товара в корзину', async
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                        <span>16</span>
-                        <span>17</span>
-                        <span>18</span>
-                        <span>19</span>
-                        <span>20</span>
-                        <span>21</span>
-                        <span>22</span>
-                        <span>23</span>
-                        <span>24</span>
-                        <span>25</span>
-                    </div>
-                    <code class="typescript">
+                    <code class="typescript" data-line-numbers="6-9|11-17|2-3">
 import { ProductId } from '@/shared/types/product';
 import { IBasket, IBasketProduct } from '../types';
 
@@ -425,34 +345,7 @@ export class Basket {
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                        <span>16</span>
-                        <span>17</span>
-                        <span>18</span>
-                        <span>19</span>
-                        <span>20</span>
-                        <span>21</span>
-                        <span>22</span>
-                        <span>23</span>
-                        <span>24</span>
-                        <span>25</span>
-                    </div>
-                    <code class="typescript">
+                    <code class="typescript" data-line-numbers="8-13|20-24|2-5">
 import { Basket } from './Basket';
 import { IBasket, IBasketProduct } from '../types';
 import { BrowserStorageType } from '@/shared/BrowserStorage';
@@ -485,31 +378,7 @@ export class BasketManager {
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                        <span>16</span>
-                        <span>17</span>
-                        <span>18</span>
-                        <span>19</span>
-                        <span>20</span>
-                        <span>21</span>
-                        <span>22</span>
-                    </div>
-                    <code class="typescript">
+                    <code class="typescript" data-line-numbers="8-9|11-20">
 import { BasketManager } from '../models/BasketManager';
 import { basketStore } from '../store/basketStore';
 import { basketApiService } from '@/shared/api/basketApiService';
@@ -540,25 +409,7 @@ export const useGetBasketManager = () => {
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                        <span>16</span>
-                    </div>
-                    <code class="typescript">
+                    <code class="typescript" data-line-numbers="3|4|6-13">
 it('Товар успешно добавляется в корзину', () => {
     basket = new Basket({ products: [], productsCount: {} });
     basket.addItem(mockedProduct);
@@ -577,29 +428,7 @@ it('Товар успешно добавляется в корзину', () => {
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                        <span>16</span>
-                        <span>17</span>
-                        <span>18</span>
-                        <span>19</span>
-                        <span>20</span>
-                    </div>
-                    <code class="typescript">
+                    <code class="typescript" data-line-numbers="3-5|6|8-18">
 test('Данные синхронизируются при добавлении в корзину', () => {
     const basketManager = new BasketManager(
         updateStoreMock, updateApiMock, browserStorageMock, defaultBasketState
@@ -625,24 +454,7 @@ test('Данные синхронизируются при добавлении 
             </section>
             <section class="mainSlide jsCodeSlide">
                 <pre class="js-code">
-                    <div class="line-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span>7</span>
-                        <span>8</span>
-                        <span>9</span>
-                        <span>10</span>
-                        <span>11</span>
-                        <span>12</span>
-                        <span>13</span>
-                        <span>14</span>
-                        <span>15</span>
-                    </div>
-                    <code class="typescript">
+                    <code class="typescript" data-line-numbers="5,7,12">
 export class BasketManager {
     constructor(
         ...,
